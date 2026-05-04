@@ -87,3 +87,38 @@ Abaixo estão as estruturas JSON para você colar no Body (raw -> JSON) nas requ
 ### 5. DELETE (DELETE)
 **Endpoint**: `http://localhost:8080/brinquedos/1`
 *(Não precisa de JSON no Body)*
+
+---
+
+## Documentação Técnica Extra
+
+### Diagrama de Classes (UML)
+Abaixo, a representação da classe principal do projeto:
+
+```mermaid
+classDiagram
+    class Brinquedo {
+        +Long id
+        +String nome
+        +String tipo
+        +String classificacao
+        +String tamanho
+        +Double preco
+    }
+```
+
+### Script DML (Exemplos de Inserção)
+Caso deseje popular o banco de dados Oracle manualmente via SQL Developer:
+
+```sql
+INSERT INTO TDS_TB_Brinquedos (nome, tipo, classificacao, tamanho, preco) 
+VALUES ('Carrinho de Controle Remoto', 'Veículos', '8+', 'Médio', 189.90);
+
+INSERT INTO TDS_TB_Brinquedos (nome, tipo, classificacao, tamanho, preco) 
+VALUES ('Boneca Articulada', 'Bonecas', 'Livre', 'Grande', 120.00);
+
+INSERT INTO TDS_TB_Brinquedos (nome, tipo, classificacao, tamanho, preco) 
+VALUES ('Lego Star Wars', 'Blocos de Montar', '10+', 'Pequeno', 250.50);
+
+COMMIT;
+```
