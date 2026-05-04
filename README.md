@@ -19,7 +19,7 @@ RM562795
 RM563399
 
 ## Sobre o Projeto
-Este é um aplicativo para uma empresa de brinquedos (crianças até 14 anos) desenvolvido em Spring Boot usando a linguagem Java e gerenciador de dependências Gradle.
+Este é um aplicativo para uma empresa de brinquedos (crianças até 14 anos) desenvolvido em Spring Boot usando a linguagem Java e gerenciador de dependências Maven.
 O projeto implementa uma API RESTFUL completa (CRUD - Create, Read, Update e Delete) conectada ao banco de dados Oracle usando JPA/Hibernate.
 
 ### Tecnologias e Dependências
@@ -39,7 +39,7 @@ A configuração das dependências do Spring Initializr pode ser validada pela i
 
 1. Certifique-se de que o **Oracle SQL Developer** esteja rodando localmente (porta 1521).
 2. O usuário e senha configurados no `application.properties` são `ORACLE_FIAP` e `sua_senha_aqui`. Altere a senha se necessário.
-3. Inicie o projeto pelo IDE ou rodando `./gradlew bootRun`. O Tomcat rodará na porta **8080**.
+3. Inicie o projeto pelo IDE ou rodando `mvn spring-boot:run`. O Tomcat rodará na porta **8080**.
 4. Teste a API pelo **Postman** ou **Insomnia**.
 
 ---
