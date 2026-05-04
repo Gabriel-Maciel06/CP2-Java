@@ -5,10 +5,11 @@ import com.example.brinquedos.dto.BrinquedoResponseDTO;
 import com.example.brinquedos.service.BrinquedoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -31,7 +32,12 @@ public class BrinquedoController {
     @PostMapping
     public ResponseEntity<BrinquedoResponseDTO> salvar(@Valid @RequestBody BrinquedoRequestDTO dto) {
         BrinquedoResponseDTO response = service.salvar(dto);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(response.getId())
+                .toUri();
+        return ResponseEntity.created(uri).body(response);
     }
 
     @PutMapping("/{id}")

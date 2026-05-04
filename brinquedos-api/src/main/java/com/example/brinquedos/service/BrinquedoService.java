@@ -5,7 +5,9 @@ import com.example.brinquedos.dto.BrinquedoResponseDTO;
 import com.example.brinquedos.model.Brinquedo;
 import com.example.brinquedos.repository.BrinquedoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,7 +25,8 @@ public class BrinquedoService {
     }
 
     public BrinquedoResponseDTO buscarPorId(Long id) {
-        Brinquedo brinquedo = repository.findById(id).orElseThrow(() -> new RuntimeException("Brinquedo não encontrado"));
+        Brinquedo brinquedo = repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Brinquedo não encontrado"));
         return new BrinquedoResponseDTO(brinquedo);
     }
 
@@ -40,7 +43,8 @@ public class BrinquedoService {
     }
 
     public BrinquedoResponseDTO atualizar(Long id, BrinquedoRequestDTO dto) {
-        Brinquedo brinquedo = repository.findById(id).orElseThrow(() -> new RuntimeException("Brinquedo não encontrado"));
+        Brinquedo brinquedo = repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Brinquedo não encontrado"));
         
         brinquedo.setNome(dto.getNome());
         brinquedo.setTipo(dto.getTipo());
@@ -53,6 +57,9 @@ public class BrinquedoService {
     }
 
     public void deletar(Long id) {
+        if (!repository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brinquedo não encontrado");
+        }
         repository.deleteById(id);
     }
 }

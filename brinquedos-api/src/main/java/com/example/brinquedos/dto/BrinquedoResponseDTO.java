@@ -1,7 +1,11 @@
 package com.example.brinquedos.dto;
 
 import com.example.brinquedos.model.Brinquedo;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class BrinquedoResponseDTO {
     private Long id;
     private String nome;
@@ -18,12 +22,4 @@ public class BrinquedoResponseDTO {
         this.tamanho = brinquedo.getTamanho();
         this.preco = brinquedo.getPreco();
     }
-
-    // Getters
-    public Long getId() { return id; }
-    public String getNome() { return nome; }
-    public String getTipo() { return tipo; }
-    public String getClassificacao() { return classificacao; }
-    public String getTamanho() { return tamanho; }
-    public Double getPreco() { return preco; }
 }
