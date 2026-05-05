@@ -38,7 +38,7 @@ A configuração das dependências do Spring Initializr pode ser validada pela i
 ## Como Rodar e Testar
 
 1. Certifique-se de que o **Oracle SQL Developer** esteja rodando localmente (porta 1521).
-2. O usuário e senha configurados no `application.properties` são `ORACLE_FIAP` e `sua_senha_aqui`. Altere a senha se necessário.
+2. O usuário e senha configurados no `application.properties` são `RM562795` e `060205`. Altere a senha se necessário.
 3. Inicie o projeto pelo IDE ou rodando `mvn spring-boot:run`. O Tomcat rodará na porta **8080**.
 4. Teste a API pelo **Postman** ou **Insomnia**.
 
@@ -122,3 +122,5 @@ VALUES ('Lego Star Wars', 'Blocos de Montar', '10+', 'Pequeno', 250.50);
 
 COMMIT;
 ```
+
+
