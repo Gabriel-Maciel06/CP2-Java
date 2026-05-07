@@ -31,7 +31,7 @@ O projeto implementa uma API RESTFUL completa (CRUD - Create, Read, Update e Del
   - Validation
   - Oracle Driver
 
-A configuração das dependências do Spring Initializr pode ser validada pela imagem fornecida na pasta do projeto.
+Abaixo, as imagens de modelagem do banco de dados (Lógico e Relacional).
 
 ---
 
@@ -91,6 +91,14 @@ Abaixo estão as estruturas JSON para você colar no Body (raw -> JSON) nas requ
 ---
 
 ## Documentação Técnica Extra
+
+### Modelagem de Dados (Oracle)
+
+#### Modelo Lógico
+![Modelo Lógico](images/modelo_logico.jpeg)
+
+#### Modelo Relacional
+![Modelo Relacional](images/modelo_relacional.jpeg)
 
 ### Diagrama de Classes (UML)
 Abaixo, a representação da classe principal do projeto:
